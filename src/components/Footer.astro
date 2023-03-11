@@ -1,0 +1,37 @@
+---
+---
+
+<footer>
+  <p>
+    &copy; {new Date().getFullYear()} Frau Wunderwald
+  </p>
+
+  <p>
+    <a href="https://frau-wunderwald.de/pages/impressum-frau-wunderwald"
+      >Impressum</a
+    >
+  </p>
+</footer>
+
+<style lang="scss">
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px;
+
+    p,
+    a {
+      margin: 0;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+</style>

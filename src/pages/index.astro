@@ -1,81 +1,101 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import header1 from "../assets/header_1.png";
+import header2 from "../assets/header_2.png";
+import header3 from "../assets/header_3.png";
+import header4 from "../assets/header_4.png";
+import header5 from "../assets/header_5.png";
+import Video from "../components/Video.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+  <main>
+    <h1>VINTAGEMÖBEL AUS DEM WEDDING</h1>
+    <h2>
+      23.03.2023 <br />
+      16:00 UHR
+    </h2>
+    <div class="graphics">
+      <img class="eroeffnung" src="/eröffnung.svg" alt="Eröffnung" />
+      <div class="images">
+        <img class="furniture" date-replace src="" alt="Image of a chair" />
+        <Image data-headerno="1" src={header1} alt="" />
+        <Image data-headerno="2" src={header2} alt="" />
+        <Image data-headerno="3" src={header3} alt="" />
+        <Image data-headerno="4" src={header4} alt="" />
+        <Image data-headerno="5" src={header5} alt="" />
+      </div>
+    </div>
+    <Video />
+    <Button text="IM GOOGLE KALENDER SPEICHERN" />
+    <Button text="IM APPLE KALENDER SPEICHERN" />
+    <Button text="IN OUTLOOK SPEICHERN" />
+  </main>
 </Layout>
+<script>
+  const image1 = document.querySelector('[data-headerno="1"]')!;
+  const image2 = document.querySelector('[data-headerno="2"]')!;
+  const image3 = document.querySelector('[data-headerno="3"]')!;
+  const image4 = document.querySelector('[data-headerno="4"]')!;
+  const image5 = document.querySelector('[data-headerno="5"]')!;
+  const placeholder = document.querySelector("[date-replace]")!;
+  placeholder.src = image1.src;
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+  // switch images after scroll
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) placeholder.src = image1.src;
+    if (window.scrollY > 50) placeholder.src = image2.src;
+    if (window.scrollY > 150) placeholder.src = image3.src;
+    if (window.scrollY > 250) placeholder.src = image4.src;
+    if (window.scrollY > 350) placeholder.src = image5.src;
+  });
+</script>
+
+<style lang="scss">
+  main {
+    padding: 23px;
+  }
+
+  [data-headerno] {
+    display: none;
+  }
+
+  h1,
+  h2 {
+    font-size: 39px;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  h1 {
+    margin-bottom: 28px;
+  }
+
+  .graphics {
+    display: flex;
+    align-items: flex-start;
+
+    .images {
+      margin-top: 10px;
+      flex: 1 1 0;
+      // width: 100%;
+    }
+    .furniture {
+      object-fit: contain;
+      object-position: top center;
+      max-width: 100%;
+      width: 100%;
+      height: 370px;
+    }
+
+    img {
+      // height: 100%;
+      // cover
+    }
+  }
+  .eroeffnung {
+    margin-top: 28px;
+  }
 </style>
