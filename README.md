@@ -1,5 +1,9 @@
 <div>
-  <h1 align="center">Frau Wunderwald: Grand Opening Landing Page</h1>
+  <h1 align="center">Frau Wunderwald <br/> <i>Grand Opening Landing Page</i></h1>
+</div>
+<div align="center">
+<img width="364" alt="Untitled-1" src="https://user-images.githubusercontent.com/12611076/224480538-20668190-9a4f-46ac-a6ee-9bfe9d5a22d2.png">
+
 </div>
 
 ## 🚀 Project Structure
