@@ -14,10 +14,18 @@ import Navigation from "../components/Navigation.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-  </head>
-  <body>
+    <!-- meta description -->
+    <meta
+      name="description"
+      content="Frau Wunderwald eröffnet seinen ersten Laden in Berlin, Wedding."
+    />
+    <meta name="author" content="Frau Wunderwald" />
+    <meta
+      name="keywords"
+      content="Frau Wunderwald, Berlin, Wedding, Neueröffnung"
+    />
+  </head><body>
     <Navigation />
     <slot />
     <Footer />
@@ -33,13 +41,6 @@ import Navigation from "../components/Navigation.astro";
       white 60%
     );
   }
-
-  /* @font-face {
-    font-family: Helvetica;
-    font-weight: 400;
-    font-style: normal;
-    src: url("/helvetica400.woff2") format("woff2");
-  } */
 
   * {
     box-sizing: border-box;
