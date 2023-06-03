@@ -5,4 +5,8 @@ export default defineConfig({
   experimental: {
     assets: true,
   },
+  base: "/store",
+  build: {
+
+  }
 });
