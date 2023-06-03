@@ -6,19 +6,18 @@ export interface Props {
 const { text } = Astro.props;
 ---
 
-<button>
-  {text}
-</button>
+<button>{text}</button>
 
 <style lang="scss">
   button {
     background: none;
     padding: 14px 18px;
-    font-size: 15px;
-    width: 100%;
-    margin-bottom: 20px;
+    font-size: 14px;
+    // margin-bottom: 20px;
     appearance: none;
+    white-space: pre;
     border: 1px solid #000;
     color: #000;
+    flex: 1 1 0;
   }
 </style>

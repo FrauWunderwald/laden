@@ -5,24 +5,47 @@ import Button from "../components/Button.astro";
 ---
 
 <Layout title="Frau Wunderwald | Neueröffnung">
+  <header>
+    <h1>VINTAGEMÖBEL IN BERLIN</h1>
+    <h2 class="highlight">NEU · 23. JUNI '23</h2>
+    <h2 class="highlight">TRAVEMÜNDER STR. 7</h2>
+    <img
+      class="eroeffnung"
+      src="/eroeffnung.svg"
+      alt="Neueröffnung"
+      <div
+      class="images"
+    />
+    <img class="furniture" date-replace src="" alt="Image of a chair" />
+  </header>
+
   <main>
-    <h1>VINTAGEMÖBEL AUS DEM WEDDING</h1>
-    <h2>
-      23.03.2023 <br />
-      TRAVEMÜNDER STR. 7
-    </h2>
-    <div class="graphics">
-      <h2 class="eroeffnung">NEUERÖFFNUNG →</h2>
-      <div class="images">
-        <img class="furniture" date-replace src="" alt="Image of a chair" />
+    <section>
+      <h3>Anfahrt</h3>
+      <Video />
+
+      <div class="buttons">
+        <Button text="IM GOOGLE KALENDER SPEICHERN" />
+        <Button text="IM APPLE KALENDER SPEICHERN" />
+        <Button text="IN OUTLOOK SPEICHERN" />
       </div>
-    </div>
-    <Video />
-    <Button text="IM GOOGLE KALENDER SPEICHERN" />
-    <Button text="IM APPLE KALENDER SPEICHERN" />
-    <Button text="IN OUTLOOK SPEICHERN" />
+    </section>
+    <section>
+      <h3>Der Laden</h3>
+      <ul>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>consectetur adipiscing elit</li>
+        <li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+        <li>Ut enim ad minim veniam</li>
+      </ul>
+
+      <p>
+         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </section>
   </main>
 </Layout>
+
 <script>
   const placeholder = document.querySelector("[date-replace]") as any;
   placeholder.src = "/header_1.png";
@@ -39,49 +62,115 @@ import Button from "../components/Button.astro";
 
 <style lang="scss">
   main {
-    padding: 23px;
     overflow-x: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 12px;
   }
 
-  [data-headerno] {
-    display: none;
+  section + section {
+    margin-top: 40px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    position: relative;
+    height: calc(100dvh - 54px);
+    max-height: calc(100dvh - 54px);
+    overflow: hidden;
+    padding: 23px;
+
+    .furniture {
+      position: absolute;
+      bottom: 0;
+      right: -90px;
+      z-index: -1;
+    }
+
+    .eroeffnung {
+      margin-top: auto;
+    }
   }
 
   h1,
   h2 {
     font-size: 39px;
-    font-weight: 300;
     margin: 0;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  h3 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 18px;
+  }
+
+  .highlight {
+    background: #ffff00;
+    font-size: 26px;
+    padding: 7px 14px;
+    display: inline-block;
+    margin-bottom: 12px;
   }
 
   h1 {
     margin-bottom: 28px;
   }
 
-  .graphics {
+  .buttons {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 
-    .images {
-      margin-top: 10px;
+    div {
       flex: 1 1 0;
-    }
-
-    .furniture {
-      object-fit: contain;
-      object-position: top center;
-      max-width: 100%;
-      width: 100%;
-      height: 370px;
-      transform: translateY(-70px) scale(1.2);
-      transform-origin: top left;
-      position: relative;
-      z-index: -10;
     }
   }
 
-  .eroeffnung {
-    margin-top: 28px;
-    writing-mode: vertical-rl;
+  @media (min-width: 720px) {
+    header {
+      justify-content: flex-end;
+      padding-bottom: 10vh;
+
+      h1 {
+        font-size: 65px;
+        max-width: 580px;
+        margin-bottom: 80px;
+      }
+
+      .highlight {
+        font-size: 60px;
+      }
+
+      .eroeffnung {
+        display: none;
+      }
+
+      .furniture {
+        // right: 8vw;
+        width: 50vw;
+        height: 90dvh;
+
+        object-fit: contain;
+      }
+    }
+  }
+
+  @media ((max-width: 1000px) and (min-width: 720px)) {
+    header {
+      h1 {
+        font-size: 55px;
+      }
+
+      .highlight {
+        font-size: 40px;
+      }
+    }
   }
 </style>

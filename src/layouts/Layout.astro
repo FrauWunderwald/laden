@@ -6,6 +6,7 @@ export interface Props {
 const { title } = Astro.props;
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import "../styles/global.css";
 ---
 
 <!DOCTYPE html>
@@ -47,13 +48,15 @@ import Navigation from "../components/Navigation.astro";
   }
 
   html {
-    font-family: "Helvetica", system-ui, sans-serif;
+    font-family: "Helvetica", "Inter", system-ui, sans-serif;
     background-color: #ffffff;
   }
+
   body {
     margin: 0;
     padding-top: 50px;
   }
+
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
       DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
