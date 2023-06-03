@@ -11,7 +11,7 @@ import Button from "../components/Button.astro";
     <h2 class="highlight">TRAVEMÜNDER STR. 7</h2>
     <img
       class="eroeffnung"
-      src=`${import.meta.env.BASE_URL}/eroeffnung.svg`
+      src=`/eroeffnung.svg`
       alt="Neueröffnung"
       <div
       class="images"
@@ -55,20 +55,15 @@ import Button from "../components/Button.astro";
 
 <script>
   const placeholder = document.querySelector("[date-replace]") as any;
-  placeholder.src = `${import.meta.env.BASE_URL}/header_1.png`;
+  placeholder.src = `/header_1.png`;
 
   // switch images after scroll
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 0)
-      placeholder.src = `${import.meta.env.BASE_URL}/header_1.png`;
-    if (window.scrollY > 50)
-      placeholder.src = `${import.meta.env.BASE_URL}/header_2.png`;
-    if (window.scrollY > 150)
-      placeholder.src = `${import.meta.env.BASE_URL}/header_3.png`;
-    if (window.scrollY > 250)
-      placeholder.src = `${import.meta.env.BASE_URL}/header_4.png`;
-    if (window.scrollY > 350)
-      placeholder.src = `${import.meta.env.BASE_URL}/header_5.png`;
+    if (window.scrollY > 0) placeholder.src = `/header_1.png`;
+    if (window.scrollY > 50) placeholder.src = `/header_2.png`;
+    if (window.scrollY > 150) placeholder.src = `/header_3.png`;
+    if (window.scrollY > 250) placeholder.src = `/header_4.png`;
+    if (window.scrollY > 350) placeholder.src = `/header_5.png`;
   });
 </script>
 
