@@ -26,8 +26,8 @@ import Button from "../components/Button.astro";
 
       <div class="buttons">
         <Button text="IM GOOGLE KALENDER SPEICHERN" />
-        <Button text="IM APPLE KALENDER SPEICHERN" />
         <Button text="IN OUTLOOK SPEICHERN" />
+        <Button text="IM APPLE KALENDER SPEICHERN" />
       </div>
     </section>
     <section>
@@ -67,6 +67,29 @@ import Button from "../components/Button.astro";
   });
 </script>
 
+<script>
+  import * as basicScroll from "basicscroll";
+  const placeholder = document.querySelector("[date-replace]") as any;
+
+  console.log(placeholder);
+
+  const instance = basicScroll.create({
+    elem: placeholder,
+    // direct: true,
+    from: "top-top",
+    to: "bottom-top",
+    props: {
+      "--translateY": {
+        from: "0px",
+        to: "-100px",
+        // timing: "elasticOut",
+      },
+    },
+  });
+
+  instance.start();
+</script>
+
 <style lang="scss">
   main {
     overflow-x: hidden;
@@ -92,9 +115,11 @@ import Button from "../components/Button.astro";
 
     .furniture {
       position: absolute;
-      bottom: 0;
+      bottom: var(--translateY);
       right: -90px;
       z-index: -1;
+      will-change: transform;
+      transform: translateY();
     }
 
     .eroeffnung {
@@ -132,7 +157,7 @@ import Button from "../components/Button.astro";
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     gap: 10px;
 
     div {

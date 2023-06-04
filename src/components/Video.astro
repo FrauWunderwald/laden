@@ -18,7 +18,7 @@
     controls={false}></video>
 
   <div class="text">
-    <img class="furniture" src=`/LocationIcon.svg` alt="Location Icon" />
+    <img class="icon" src=`/LocationIcon.svg` alt="Location Icon" />
     Travemünder Str. 7, 13357 Berlin
   </div>
 </div>
@@ -30,10 +30,20 @@
     gap: 12px;
 
     .text {
-      font-size: 24px;
+      font-size: 20px;
       margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      @media (min-width: 800px) {
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+
+    .icon {
+      height: 18px;
     }
 
     video {
