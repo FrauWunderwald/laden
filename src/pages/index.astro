@@ -7,7 +7,7 @@ import Button from "../components/Button.astro";
 <Layout title="Frau Wunderwald | Neueröffnung">
   <header>
     <h1>VINTAGEMÖBEL IN BERLIN</h1>
-    <h2 class="highlight">NEU · 23. JUNI '23</h2>
+    <h2 class="highlight">NEU — 23. JUNI '23</h2>
     <h2 class="highlight">TRAVEMÜNDER STR. 7</h2>
     <img
       class="eroeffnung"
@@ -81,13 +81,17 @@ import Button from "../components/Button.astro";
     props: {
       "--translateY": {
         from: "0px",
-        to: "-100px",
-        // timing: "elasticOut",
+        to: "250px",
       },
     },
   });
 
   instance.start();
+
+  window.onresize = () => {
+    instance.calculate();
+    instance.update();
+  };
 </script>
 
 <style lang="scss">
@@ -110,16 +114,16 @@ import Button from "../components/Button.astro";
     position: relative;
     height: calc(100svh - 54px);
     max-height: calc(100svh - 54px);
-    overflow: hidden;
     padding: 23px;
 
     .furniture {
       position: absolute;
-      bottom: var(--translateY);
+      bottom: 0;
       right: -90px;
       z-index: -1;
       will-change: transform;
-      transform: translateY();
+      transform: translateY(var(--translateY));
+      height: 80svh;
     }
 
     .eroeffnung {
@@ -187,14 +191,13 @@ import Button from "../components/Button.astro";
       .furniture {
         width: 50vw;
         right: 2vw;
-        height: 90dvh;
-
+        height: 90svh;
         object-fit: contain;
       }
     }
   }
 
-  @media ((max-width: 1000px) and (min-width: 720px)) {
+  @media ((max-width: 1100px) and (min-width: 720px)) {
     header {
       h1 {
         font-size: 55px;
