@@ -110,51 +110,53 @@
     }
   }
 
-  nav.expanded {
-    height: 100%;
-    .content {
-      > * {
-        animation: slideIn 0.15s ease-out forwards;
-        opacity: 0;
-      }
-
-      > *:nth-child(1) {
-        animation-delay: 0s;
-      }
-      > *:nth-child(2) {
-        animation-delay: 0.05s;
-      }
-      > *:nth-child(3) {
-        animation-delay: 0.08s;
-      }
-      > *:nth-child(4) {
-        animation-delay: 0.12s;
-      }
-    }
-
-    @keyframes slideIn {
-      0% {
-        opacity: 0;
-        transform: translateX(150px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .hamburger {
-      .line {
-        &:nth-child(1) {
-          transform: rotate(45deg);
-        }
-
-        &:nth-child(2) {
+  @media (max-width: 899px) {
+    nav.expanded {
+      height: 100%;
+      .content {
+        > * {
+          animation: slideIn 0.15s ease-out forwards;
           opacity: 0;
         }
 
-        &:nth-child(3) {
-          transform: rotate(-45deg);
+        > *:nth-child(1) {
+          animation-delay: 0s;
+        }
+        > *:nth-child(2) {
+          animation-delay: 0.05s;
+        }
+        > *:nth-child(3) {
+          animation-delay: 0.08s;
+        }
+        > *:nth-child(4) {
+          animation-delay: 0.12s;
+        }
+      }
+
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateX(150px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .hamburger {
+        .line {
+          &:nth-child(1) {
+            transform: rotate(45deg);
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            transform: rotate(-45deg);
+          }
         }
       }
     }
@@ -176,5 +178,36 @@
 
   nav:not(.expanded) .content {
     display: none;
+  }
+
+  @media (min-width: 900px) {
+    nav {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .bar {
+        p {
+          padding: 14px 24px;
+        }
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      .content {
+        display: flex !important;
+        flex-direction: row;
+        gap: 30px;
+        padding: 0 24px;
+
+        a {
+          font-size: 17px;
+          color: #000;
+          text-decoration: none;
+        }
+      }
+    }
   }
 </style>
