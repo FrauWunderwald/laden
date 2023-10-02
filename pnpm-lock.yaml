@@ -15,6 +15,11 @@ dependencies:
     specifier: ^1.58.3
     version: 1.58.3
 
+devDependencies:
+  '@types/basicscroll':
+    specifier: ^3.0.2
+    version: 3.0.2
+
 packages:
 
   /@ampproject/remapping@2.2.0:
@@ -652,6 +657,10 @@ packages:
     dependencies:
       '@babel/types': 7.21.2
     dev: false
+
+  /@types/basicscroll@3.0.2:
+    resolution: {integrity: sha512-icG4LuT6Ba9S20kx01n5oG8ta7WxMHWL/JT7BCUndrh2vPCy/j7CNP+wQr9mk1ikXjkmn0k6WI42vnwdsI2XVQ==}
+    dev: true
 
   /@types/debug@4.1.7:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}

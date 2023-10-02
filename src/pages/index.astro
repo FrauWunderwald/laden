@@ -6,8 +6,8 @@ import Button from "../components/Button.astro";
 
 <Layout title="Frau Wunderwald | Neueröffnung">
   <header>
-    <h1>VINTAGEMÖBEL IN BERLIN</h1>
-    <h2 class="highlight">NEU — 23. JUNI '23</h2>
+    <h1>VINTAGE MÖBEL LIVING</h1>
+    <h2 class="highlight">NEU · 26.10.2023</h2>
     <h2 class="highlight">TRAVEMÜNDER STR. 7</h2>
     <img
       class="eroeffnung"
@@ -20,38 +20,67 @@ import Button from "../components/Button.astro";
   </header>
 
   <main>
-    <section>
-      <h3>Anfahrt</h3>
-      <Video />
-
-      <div class="buttons">
-        <Button text="IM GOOGLE KALENDER SPEICHERN" />
-        <Button text="IN OUTLOOK SPEICHERN" />
-        <Button text="IM APPLE KALENDER SPEICHERN" />
-      </div>
-    </section>
-    <section>
+    <section class="laden">
       <h3>Der Laden</h3>
-      <ul>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>consectetur adipiscing elit</li>
-        <li>
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </li>
-        <li>Ut enim ad minim veniam</li>
-      </ul>
+      <p>
+        Mit Frau Wunderwald zum Interior-Traum.
+        <br />
+        Bei uns findet jeder etwas – denn unsere Produkte sind so divers wie unsere
+        Kund:innen: Vom restaurierten Designerstück über ausgewählte Deko-Artikel
+        bis zum erschwinglichen Sideboard. Möbel für jedes Zimmer, ausgesuchte Klamotten,
+        Kunst und Bücher – alles unter einem Dach!
+      </p>
+      <p>
+        Jedes Teil ist einzigartig. Und ständig wirst du neue Möbel, Lampen und
+        Deko-Artikel bei uns finden: Denn unser Sortiment verändert sich stetig.
+        So können wir deinen Wohntraum auf jeden Fall erfüllen.
+      </p>
+      <p>
+        Komm vorbei und entdecke, was unser Familienunternehmen für dich bereit
+        hält. Auf über 420 Quadratmetern auf zwei Stockwerken kannst du stöbern
+        oder einfach nur Kunst genießen. Mit unserem Laden haben wir uns den
+        Traum von Verkauf und Werkstatt unter einem Dach erfüllt. In einer
+        denkmalgeschützen Halle im wunderschönen Wedding warten unsere Möbel auf
+        dich.
+      </p>
+    </section>
+    <section class="anfahrt">
+      <h3>Anfahrt</h3>
 
       <p>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Mollit anim id est laborum. Ut enim ad minim veniam, quis
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
+        <span class="pin">📍</span> Travemünder Straße 7, 1123 Wedding, Berlin
       </p>
+
+      <a
+        href="https://maps.app.goo.gl/Xf8uTtJtaM2eGXCM6"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="map"
+          src="/maps_screen.png"
+          alt="Screenshot von einer Karte, auf der der Laden zu sehen ist."
+        />
+      </a>
+      <!-- 
+      <gmp-map
+        center="52.554195404052734,13.381795883178711"
+        zoom="14"
+        map-id="DEMO_MAP_ID"
+      >
+        <gmp-advanced-marker
+          position="52.554195404052734,13.381795883178711"
+          title="My location"
+        >
+        </gmp-advanced-marker>
+      </gmp-map> -->
     </section>
   </main>
 </Layout>
+<!-- <script
+  async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvZJNt0ENiIvEN5HBtzeeuiiVuBoBQk_E&callback=console.debug&libraries=maps,marker&v=beta"
+></script> -->
 
 <script>
   const placeholder = document.querySelector("[date-replace]") as any;
@@ -97,7 +126,7 @@ import Button from "../components/Button.astro";
 <style lang="scss">
   main {
     overflow-x: hidden;
-    max-width: 800px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 12px;
   }
@@ -135,7 +164,7 @@ import Button from "../components/Button.astro";
   h2 {
     font-size: 39px;
     margin: 0;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1;
   }
 
@@ -146,7 +175,8 @@ import Button from "../components/Button.astro";
   }
 
   .highlight {
-    background: #ffff00;
+    background: #ff5300;
+    color: #fff;
     font-size: 26px;
     padding: 7px 14px;
     display: inline-block;
@@ -166,6 +196,33 @@ import Button from "../components/Button.astro";
 
     div {
       flex: 1 1 0;
+    }
+  }
+
+  section.laden {
+    p {
+      margin-bottom: 18px;
+      font-size: 16px;
+    }
+  }
+
+  section.anfahrt {
+    p {
+      margin-bottom: 18px;
+    }
+
+    .pin {
+      user-select: none;
+    }
+
+    .map {
+      margin-bottom: 40px;
+    }
+
+    gmp-map {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 60px;
     }
   }
 
