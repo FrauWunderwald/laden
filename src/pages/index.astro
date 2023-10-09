@@ -87,12 +87,12 @@ import Button from "../components/Button.astro";
   placeholder.src = `/header_1.png`;
 
   // switch images after scroll
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) placeholder.src = `/header_1.png`;
-    if (window.scrollY > 50) placeholder.src = `/header_2.png`;
-    if (window.scrollY > 150) placeholder.src = `/header_3.png`;
-    if (window.scrollY > 250) placeholder.src = `/header_4.png`;
-    if (window.scrollY > 350) placeholder.src = `/header_5.png`;
+  document.body.addEventListener("scroll", () => {
+    if (document.body.scrollTop > 0) placeholder.src = `/header_1.png`;
+    if (document.body.scrollTop > 50) placeholder.src = `/header_2.png`;
+    if (document.body.scrollTop > 150) placeholder.src = `/header_3.png`;
+    if (document.body.scrollTop > 250) placeholder.src = `/header_4.png`;
+    if (document.body.scrollTop > 350) placeholder.src = `/header_5.png`;
   });
 </script>
 
@@ -104,7 +104,7 @@ import Button from "../components/Button.astro";
 
   const instance = basicScroll.create({
     elem: placeholder,
-    // direct: true,
+
     from: "top-top",
     to: "bottom-top",
     props: {
@@ -113,6 +113,7 @@ import Button from "../components/Button.astro";
         to: "250px",
       },
     },
+
   });
 
   instance.start();
