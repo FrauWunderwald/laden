@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "astro": "^2.0.18",
+    "autoprefixer": "^10.4.16",
     "basicscroll": "^3.0.4",
+    "cssnano": "^6.0.1",
+    "postcss-reporter": "^7.0.5",
     "sass": "^1.58.3"
   },
   "devDependencies": {
