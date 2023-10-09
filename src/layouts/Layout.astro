@@ -1,12 +1,13 @@
 ---
-export interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  preloadImages?: string[];
+}
+const { title, preloadImages } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -16,6 +17,7 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+
     <!-- meta description -->
     <meta
       name="description"
@@ -26,6 +28,12 @@ import "../styles/global.css";
       name="keywords"
       content="Frau Wunderwald, Berlin, Wedding, Neueröffnung"
     />
+
+    {
+      preloadImages?.map((image) => (
+        <link rel="preload" as="image" href={image} />
+      ))
+    }
   </head><body>
     <Navigation />
     <slot />
