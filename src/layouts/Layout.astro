@@ -34,10 +34,13 @@ const { title, preloadImages } = Astro.props;
         <link rel="preload" as="image" href={image} />
       ))
     }
-  </head><body>
-    <Navigation />
-    <slot />
-    <Footer />
+  </head>
+  <body>
+    <div id="astro">
+      <Navigation />
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>
 <style is:global>
@@ -62,6 +65,11 @@ const { title, preloadImages } = Astro.props;
 
   body {
     margin: 0;
+  }
+
+  #astro {
+    position: relative;
+    overflow-x: hidden;
     padding-top: 50px;
   }
 
