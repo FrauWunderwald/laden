@@ -68,32 +68,9 @@ import Layout from "../layouts/Layout.astro";
           alt="Screenshot von einer Karte, auf der der Laden zu sehen ist."
         />
       </a>
-      <!-- 
-      <gmp-map
-        center="52.554195404052734,13.381795883178711"
-        zoom="14"
-        map-id="DEMO_MAP_ID"
-      >
-        <gmp-advanced-marker
-          position="52.554195404052734,13.381795883178711"
-          title="My location"
-        >
-        </gmp-advanced-marker>
-      </gmp-map> -->
     </section>
-    <!-- <iframe
-      src="https://lumalabs.ai/embed/902c43cd-facf-4749-b62c-e07d70bf337e?mode=sparkles&background=%23000000&color=%23FFFFFF&showTitle=false&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false"
-      width="100%"
-      height="500"
-      frameborder="0"
-      title="luma embed"
-      style="border: none;"></iframe> -->
   </main>
 </Layout>
-<!-- <script
-  async
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvZJNt0ENiIvEN5HBtzeeuiiVuBoBQk_E&callback=console.debug&libraries=maps,marker&v=beta"
-></script> -->
 
 <script>
   const placeholder = document.querySelector("[date-replace]") as any;
@@ -106,34 +83,14 @@ import Layout from "../layouts/Layout.astro";
     if (window.scrollY > 150) placeholder.src = `/header_3.png`;
     if (window.scrollY > 250) placeholder.src = `/header_4.png`;
     if (window.scrollY > 350) placeholder.src = `/header_5.png`;
+
+    const clampedScrollY = Math.min(window.scrollY / 5, 300);
+
+    document.documentElement.style.setProperty(
+      "--translateY",
+      `${clampedScrollY}px`
+    );
   });
-</script>
-
-<script>
-  import * as basicScroll from "basicscroll";
-  const placeholder = document.querySelector("[date-replace]") as any;
-
-  console.log(placeholder);
-
-  const instance = basicScroll.create({
-    elem: placeholder,
-
-    from: "top-top",
-    to: "bottom-top",
-    props: {
-      "--translateY": {
-        from: "0px",
-        to: "250px",
-      },
-    },
-  });
-
-  instance.start();
-
-  window.onresize = () => {
-    instance.calculate();
-    instance.update();
-  };
 </script>
 
 <style lang="scss">
@@ -241,7 +198,7 @@ import Layout from "../layouts/Layout.astro";
   @media (min-width: 720px) {
     header {
       justify-content: flex-end;
-      padding-bottom: 10vh;
+      padding-bottom: 10svh;
 
       h1 {
         font-size: 65px;
